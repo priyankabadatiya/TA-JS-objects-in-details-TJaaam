@@ -1,4 +1,13 @@
 // 1. Create a function `createUser` that accepts `name` and `age` and returns a new object with those properties.
+class CreateUser {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    user() {
+        alert(`${this.name}${this.age}`);
+    }
+}
 
 // 2. Add a method named `sayHello` inside the object created above. When called it should alert `Welcome {user}`. Replace `{user}` with the name of the user.
 
