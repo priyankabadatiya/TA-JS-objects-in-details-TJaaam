@@ -28,20 +28,28 @@ let userMethods = {
     getProjects: function() {
         return this.noOfProjects;
     },
-    changeName = function(newName) {
+    changeName: function(newName) {
         let oldName = this.name;
         this.name = oldName;
         return oldName;
     },
-    incrementProject = function() {
+    incrementProject: function() {
         this.noOfProjects = noOfProjects + 1;
         return this.noOfProjects;
     },
-    decrementProject = function() {
+    decrementProject: function() {
         this.noOfProjects = noOfProjects - 1;
         return this.noOfProjects;
     },
 };
+
+function createProject(name, id, noOfProjects) {
+    let user = Object.create(userMethods);
+    user.name = name;
+    user.id = id;
+    user.noOfProjects = noOfProjects;
+
+}
 
 // PsuedoClassical Pattern
 
@@ -62,10 +70,10 @@ CreateProject.prototype = {
     },
 
     incrementProject: function() {
-        return (this.noOfProjects = this.noOfProjects + 1);
+        return (this.noOfProjects += 1);
     },
     decrementProject: function() {
-        return (this.noOfProjects = this.noOfProjects - 1);
+        return (this.noOfProjects -= 1);
     },
 };
 
@@ -89,10 +97,10 @@ class Projects {
     }
 
     incrementProject() {
-        return (this.noOfProjects = this.noOfProjects + 1);
+        return (this.noOfProjects += 1);
     }
 
     decrementProject() {
-        return (this.noOfProjects = this.noOfProjects - 1);
+        return (this.noOfProjects -= 1);
     }
 };
