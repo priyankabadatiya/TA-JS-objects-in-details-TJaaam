@@ -2,6 +2,36 @@ class Square {
     constructor(side) {
         this.width = side;
         this.height = side;
+    }
+    description() {
+        alert(`The square is ${width} x ${height}`);
+    }
+
+    calcArea() {
+        return this.width * this.height;
+    }
+
+    get area() {
+        return this.width * this.height;
+    }
+
+    set area(val) {
+        let side = Math.sqrt(val)
+        this.width = side;
+        this.height = side;
+    }
+
+    static isEqual(a, b) {
+        return (a.width * a.height) === (b.width * b.height);
+    }
+}
+
+// ------------------------------------
+
+class Square {
+    constructor(side) {
+        this.width = side;
+        this.height = side;
         this.numberOfTimes = 0;
     }
     description() {
@@ -13,43 +43,46 @@ class Square {
     }
 
     get area() {
-        this.numberOfTimes += 1;
-        if (this.numberOfTimes >= 4) {
-            return this.calcArea();
+        if (this.numberOfTimes++) {
+            alert(`Upper Limit Reached`)
+        } else {
+            return this.width * this.height;
         }
     }
 
     set area(val) {
-        this.width = Math.sqrt(val);
-        this.height = Math.sqrt(val);
+        let side = Math.sqrt(val)
+        this.width = side;
+        this.height = side;
     }
 
-    static isEqual(obj1, obj2) {
-        return obj1.width * obj1.height === obj2.width * obj2.height;
+    static isEqual(a, b) {
+        return a.area === b.area;
     }
 }
 
-let square1 = new Square(4);
-let square2 = new Square(16);
+
+// ````````````````
 
 class User {
     constructor(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    get fullName() {
-        return this.firstName + this.lastName;
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`
     }
-    set fullName(name) {
-        if (name.length <= 5) {
-            return alert("Full name should be more than 5 characters");
+    setFullName(name) {
+        if (name.length < 5) {
+            alert(`Full name should be more than 5 characters`)
         } else {
-            this.firstName = name.split(" ")[0];
-            this.lastName = name.split(" ")[1];
+            let firstName = name.split(' ')[0];
+            let lastName = name.split(' ')[1];
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
     }
     nameContains(str) {
-        return `${this.firstName} ${this.lastName}`.includes(str);
+        return `${this.firstName} ${this.lastName}`.contains(str);
     }
 }
