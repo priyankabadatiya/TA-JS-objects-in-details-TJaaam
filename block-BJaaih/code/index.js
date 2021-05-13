@@ -9,17 +9,17 @@
 
 let numbers = [1, 5, 6, 8, 9];
 let words = 'quick brown fox jumped over a lazy dog'.split(
-  ' '
+    ' '
 );
-let doubleNum = numbers.myMap(function (num) {
-  return num * 2 - 1;
+let doubleNum = numbers.myMap(function(num) {
+    return num * 2 - 1;
 });
 
 let capitalWords = words
-  .myMap(function (word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  })
-  .join(' ');
+    .myMap(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
 console.log(doubleNum); // it should be [1, 9, 11, 15, 17]
 console.log(capitalWords); // it should be 'Quick Brown Fox Jumped Over A Lazy Dog'
 
@@ -30,15 +30,15 @@ After adding the function test it using the code below.
 
 // You code goes here
 
-let even = numbers.myFilter(function (num) {
-  return num % 2 === 0;
+let even = numbers.myFilter(function(num) {
+    return num % 2 === 0;
 });
 
 let filteredWords = words
-  .myFilter(function (word) {
-    return word.length > 3;
-  })
-  .join(' ');
+    .myFilter(function(word) {
+        return word.length > 3;
+    })
+    .join(' ');
 console.log(even); // it should be [6, 8]
 console.log(filteredWords); // it should be 'quick brown jumped over lazy';
 
@@ -77,7 +77,13 @@ console.log(strings.unique()); // ['h', 'e', 'l', 'o', 'w', 'r', 'd']
 array that will contain only element that is common in both the array.
 */
 
-// You code goes here
+Array.prototype.intersection = function() {
+    this.reduce((acc, cv) => {
+        acc = acc.filter((v) => cv.includes(v));
+        return acc;
+    });
+};
+
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.intersection([2, 7, 11, 32])); // [2, 7]
