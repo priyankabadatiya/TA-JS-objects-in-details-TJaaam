@@ -5,7 +5,10 @@
 /*** CHALLENGE 1 of 1 ***/
 
 function makePerson(name, age) {
-
+    let obj = {};
+    obj.name;
+    obj.age;
+    return obj;
 }
 
 var vicky = makePerson('Vicky', 24);
@@ -21,7 +24,7 @@ var vicky = makePerson('Vicky', 24);
 /*** CHALLENGE 1 of 3 ***/
 
 var personStore = {
-    greet: function() {
+    greet() {
         console.log("hello");
     },
 };
@@ -37,9 +40,7 @@ function personFromPersonStore(name, age) {
     obj.age = age;
     return obj;
 }
-personStore.introduce = function() {
-    console.log(`Hi, my name is ${this.name}`);
-};
+
 
 var sandra = personFromPersonStore('Sandra', 26);
 
@@ -50,7 +51,9 @@ var sandra = personFromPersonStore('Sandra', 26);
 
 /*** CHALLENGE 3 of 3 ***/
 
-// add code here
+personStore.introduce = function() {
+    console.log(`Hi, my name is ${this.name}`);
+};
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
@@ -61,7 +64,12 @@ var sandra = personFromPersonStore('Sandra', 26);
 /*** CHALLENGE 1 of 3 ***/
 
 function PersonConstructor() {
-    // add code here
+    this.greet = function() {
+        console.log("hello");
+    };
+    this.introduce = function() {
+        console.log(`My name is ${this.name}`);
+    };
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -71,7 +79,10 @@ var simon = new PersonConstructor();
 /*** CHALLENGE 2 of 3 ***/
 
 function personFromConstructor(name, age) {
-    // add code here
+    let obj = new PersonConstructor();
+    obj.name = name;
+    obj.age = age;
+    return obj;
 }
 
 var mike = personFromConstructor('Mike', 30);
@@ -93,11 +104,12 @@ var mike = personFromConstructor('Mike', 30);
 /*** CHALLENGE 1 of 3 ***/
 
 class PersonClass {
-    constructor() {
-        // add code here
+    constructor(name) {
+        this.name = name;
     }
-
-    // add code here
+    greet() {
+        console.log("hello");
+    }
 }
 
 // /********* Uncomment this line to test your work! *********/
@@ -131,10 +143,12 @@ function userFactory(name, score) {
     return user;
 }
 
-var adminFunctionStore /* Put code here */ ;
+var adminFunctionStore = Object.create(userFunctionStore);;
 
 function adminFactory(name, score) {
-    // Put code here
+    let admin = adminFactory(name, score);
+    admin.type = "Admin";
+    return admin;
 }
 
 /* Put code here for a method called sharePublicMessage*/
