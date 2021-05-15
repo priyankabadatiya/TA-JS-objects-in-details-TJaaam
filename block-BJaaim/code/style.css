@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 0 auto;
+    background-color: rgb(119, 173, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    margin: 1rem;
+}
+
+.next-btn {
+    display: block;
+    text-align: center;
+}
+
+.correct {
+    border: 1px solid green;
+}
