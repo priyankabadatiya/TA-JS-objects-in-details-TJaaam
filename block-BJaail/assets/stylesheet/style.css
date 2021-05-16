@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+input {
+    width: 100%;
+    padding: 0.33rem 0;
+    margin: 0.44rem 0;
+}
+
+button {
+    width: 100%;
+    margin: 1.2rem 0;
+    padding: 0.32rem 0;
+}
+
+.blue {
+    color: blue;
+}
+
+.books-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-desc {
+    display: flex;
+    justify-content: space-between;
+}
